@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+
+        <meta charset="utf-8">
+        <title>Index</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+
+    <body>
+
+        <!--this is where log out button is and display of user first name-->
+        <p>hai hai hai, {{user.first_name}}</p>
+        <a href="/logout">log out</a>
+        <br/>
+        <br/>
+        <!-- create a trip and send user to create page-->
+        <form action="trip/add" method="post">
+            {% csrf_token %}
+            <button type="submit">create a new trip!!!</button>
+            <br/>
+            <br/>
+        </form>
+         <table>
+            <thead>
+                <!--this is where our table is created-->
+                <tr>
+                    <th>Destination</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Plan</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for trip in all_trips %}
+                    <tr>
+                        <td>{{trip.destination}}</td>
+                        <td><a href="/details"></a>{{trip.startdate}}</td>
+                        <td>{{trip.enddate}}</td>
+                        <td>{{trip.plan}}</td>
+                        <td>
+                            <a href="/shows/{{show.id}}/edit">Edit</a>
+                            <a href="/shows/{{show.id}}/delete" method="post">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+    </body>
+</html>

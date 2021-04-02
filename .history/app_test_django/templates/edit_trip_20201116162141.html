@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+
+        <meta charset="utf-8">
+        <title>Index</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+
+    <body>
+        <p>hai hai hai, {{user.first_name}}</p>
+        <a href="/logout">log out</a>
+        <br/>
+        <br/>
+        <a href="/dashboard">back to main page</a>
+        <br/>
+        <br/>
+        
+        
+
+        <form action="/trips/edit/{{trip" method="post">
+                {% csrf_token %}
+            <input type="text">destination: {{trip.destination}}
+            <br/>
+            <br/>
+            <input type="date">start date: {{trip.startdate}}
+            <br/>
+            <br/>
+            <input type="date">end date: {{trip.enddate}}
+            <br/>
+            <br/>
+            <textarea name="plan" id="" cols="30" rows="10"></textarea>Plan:
+            <br/>
+            <br/>
+
+            <button type="submit">submit</button>
+    
+        </form>
+    
+    </body>
+</html>

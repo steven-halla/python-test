@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+
+        <meta charset="utf-8">
+        <title>Index</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+
+    <body>
+        <p>hai hai hai, {{user.first_name}}</p>
+        <a href="/logout">log out</a>
+        <br/>
+        <br/>
+        <a href="/dashboard">back to main page</a>
+        <br/>
+        <br/>
+        
+        destination: {{trip.destination}}
+        <br/>
+        <br/>
+        start date: {{trip.startdate}}
+        <br/>
+        <br/>
+       end date: {{trip.enddate}}
+        <br/>
+        <br/>
+        <textarea name="plan" id="" cols="30" rows="10"></textarea>Plan:
+        <br/>
+        <br/>
+
+        <button type="submit">submit</button>
+
+        <form action="/dashboard/{{book.id}}/edit" method="post">
+                {% csrf_token %}
+                <label for="destination">destination</label>
+                <textarea name="title">{{trip.destination}}</textarea>
+                <br>
+                <br>
+
+                <label for="startdate">startdate</label>
+                <textarea name="startdate">{{trip.startdate}}</textarea>
+                <br/>
+
+                <label for="enddate">enddate</label>
+                <textarea name="enddate">{{trip.enddate}}</textarea>
+                <br>
+                <br>
+
+                <label for="startdate">startdate</label>
+                <textarea name="startdate">{{trip.startdate}}</textarea>
+                <br/>
+
+                <label for="plan">plan</label>
+                <textarea name="plan">{{trip.plan}}</textarea>
+                <br>
+                <br>
+
+                
+        
+                <button type="submit">Update</button>
+                <br/>
+    
+        </form>
+    
+    </body>
+</html>

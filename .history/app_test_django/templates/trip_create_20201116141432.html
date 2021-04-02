@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+
+        <meta charset="utf-8">
+        <title>Index</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+
+    <body>
+
+       <p>haihaihai{{user.first_name}}</p>
+        <a href="/logout">log out</a>
+        <br/>
+        <br/>
+        <h1>add a new trip</h1>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{message.tags}}"{% endif %}}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form action="/trip/create" method="post">
+            {% csrf_token %}
+            <input type="text" name="destination">desti 
+            <br>
+
+            <input type="text" name="network">network
+            <br>
+
+            <input type="text" name="release_date">release date
+            <br>
+            <textarea name="description" rows="10" cols="30"></textarea>
+            description
+            <br>
+
+            <button type="submit">Create</button>
+        </form>
+
+    
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% load static %}
+
+        <meta charset="utf-8">
+        <title>Index</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">    
+        <script src="{% static 'js/script.js' %}"></script>
+    </head>
+
+    <body>
+        <p>hai hai hai, {{user.first_name}}</p>
+        <a href="/logout">log out</a>
+        <br/>
+        <br/>
+        <a href="/dashboard">back to main page</a>
+        <br/>
+        <br/>
+        <p>destination: {{trip.destination}}</p>
+
+        <p>start date: {{trip.startdate}}</p>
+
+        <p>end date: {{trip.enddate}}</p>
+
+        <p>plan: {{trip.plan}}</p>
+        <input type="text">destination: {{trip.destination}}
+        <br>
+        <br>
+        <input type="text">start date: {{trip.startdate}}
+        <br>
+        <br>
+        <input type="text">end date: {{trip.enddate}}
+        <br>
+        <br>
+        <textarea name="plan" id="" cols="30" rows="10"></textarea>Plan:
+    
+    </body>
+</html>
